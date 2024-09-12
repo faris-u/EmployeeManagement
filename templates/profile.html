@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+
+    <!-- If there's an error, display it -->
+    {% if data.error %}
+        <p>Error: {{ data.error }}</p>
+    {% else %}
+        <!-- If the user data exists, display it -->
+        {% if data %}
+            <p><strong>Username:</strong> {{ data.username }}</p>
+            <p><strong>Email:</strong> {{ data.email }}</p>
+            <p><strong>First Name:</strong> {{ data.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ data.last_name }}</p>
+            <!-- You can add more fields if your user data includes them -->
+        {% else %}
+            <p>No user data available.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

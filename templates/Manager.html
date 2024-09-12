@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .profile-section, .employee-list-section {
+            margin-bottom: 20px;
+        }
+        .profile-section h1, .employee-list-section h2 {
+            margin-bottom: 15px;
+        }
+        .btn-update {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- Manager Profile Section -->
+        <div class="profile-section card">
+            <div class="card-header">
+                <h1>Manager Profile</h1>
+            </div>
+            <div class="card-body">
+                <h3>{{ Manager.username }}</h3>
+                <p><strong>Department:</strong> {{ Manager.department }}</p>
+                <p><strong>Role:</strong> {{ Manager.role }}</p> <!-- Added employee role -->
+               <a href="{% url 'update_manager' %}" type="button" class="btn btn-primary btn-update" >
+    Update Profile
+</a>
+
+            </div>
+        </div>
+
+        <!-- Employees List Section -->
+        <div class="employee-list-section card">
+            <div class="card-header">
+                <h2>Employees in the Same Department</h2>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for user in employees %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ user.username }} ({{ user.department }})
+                                <a href="manager_delete_employee/{{ user.user_id }}" type="submit" class="btn btn-danger btn-sm">Remove</a>
+
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">No employees found in this department.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

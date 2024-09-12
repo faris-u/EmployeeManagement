@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for the whole page */
+            padding-top: 20px;
+            font-family: Arial, sans-serif; /* Clean and modern font */
+        }
+
+        .container {
+            max-width: 600px; /* Limit the container width */
+            background-color: #ffffff; /* White background for the form */
+            padding: 30px; /* Adequate padding for form elements */
+            border-radius: 8px; /* Rounded corners for a modern look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            margin: 0 auto; /* Center the container */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.75rem; /* Larger font size for heading */
+            font-weight: 500; /* Medium font weight */
+            color: #343a40; /* Darker color for better readability */
+            text-align: center; /* Center the heading */
+        }
+
+        .form-control {
+            border-radius: 4px; /* Rounded corners for form fields */
+            border-color: #ced4da; /* Light border color */
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); /* Subtle inner shadow */
+        }
+
+        .form-control:focus {
+            border-color: #80bdff; /* Highlight border color on focus */
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Glow effect on focus */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Primary button color */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Rounded corners */
+            padding: 10px 20px; /* Adequate padding */
+            font-size: 1rem; /* Standard font size */
+            font-weight: 500; /* Medium font weight */
+            color: #ffffff; /* White text color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem; /* Spacing between form groups */
+        }
+
+        .text-center {
+            text-align: center; /* Center align text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mark Attendance</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }} <!-- Render form fields with Bootstrap styling -->
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
